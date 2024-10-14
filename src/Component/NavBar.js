@@ -32,7 +32,7 @@ export default class NavBar extends React.Component
 function CheckUser(name)
 {
     if(name === "")
-        return "please login to upload data"
+        return "記得登入"
     else 
         return "hello "+name; 
 }
