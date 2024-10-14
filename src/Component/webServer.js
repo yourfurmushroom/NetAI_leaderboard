@@ -1,4 +1,4 @@
-var ws = new WebSocket("ws://localhost:8888/socket")
+export var ws = new WebSocket("ws://localhost:8888/socket")
 const uuid=crypto.randomUUID()
 
 ws.onopen  = function(e)
