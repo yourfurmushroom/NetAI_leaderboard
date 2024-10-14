@@ -2,11 +2,11 @@ import React from "react"
 
 export default class NavBar extends React.Component
 {
-    constructor(Props)
+    constructor(props)
     {
-        super(Props)
+        super(props)
         this.state={
-            userName:Props.userName
+            
         }
     }
 
@@ -17,8 +17,10 @@ export default class NavBar extends React.Component
                 <nav class="navbar bg-body-tertiary">
                     <div class="container-fluid">
                         <span class="navbar-brand mb-0 h1">
-                            {CheckUser(this.state.userName)}
-                            </span>
+                            {CheckUser(this.props.userName)}
+                        </span>
+                        
+                    <button type="button" class="btn btn-warning" onClick={()=>this.props.logout()} hidden={this.props.userName === ""? true:false}>登出</button>
                     </div>
                 </nav>
             </div>
@@ -29,7 +31,7 @@ export default class NavBar extends React.Component
 
 function CheckUser(name)
 {
-    if(name === null)
+    if(name === "")
         return "please login to upload data"
     else 
         return "hello "+name; 

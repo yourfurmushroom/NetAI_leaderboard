@@ -12,7 +12,7 @@ export default class UploadButton extends React.Component {
         return (
             <div>
                 <div class="mb-3">
-                    <h1 for="formFileMultiple" class="form-label">asdasd</h1>
+                    <h1 for="formFileMultiple" class="form-label">選擇壓縮檔</h1>
                     <input class="form-control" type="file" id="formFileMultiple" multiple/>
                 </div>
             </div>

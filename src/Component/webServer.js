@@ -1,5 +1,4 @@
-export var ws = new WebSocket("ws://localhost:8888/socket")
-const uuid=crypto.randomUUID()
+export var ws = new WebSocket("ws://140.116.246.240:8888/socket")
 
 ws.onopen  = function(e)
 {
@@ -7,7 +6,7 @@ ws.onopen  = function(e)
 }
 ws.onmessage=(e)=>
 {
-    
+   
 }
 ws.onclose=(e)=>
 {

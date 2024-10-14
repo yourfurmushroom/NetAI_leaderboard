@@ -7,7 +7,7 @@ export default class MainField extends React.Component {
         super(Props)
         this.state = {
             isLogin: false,
-            userName: null,
+            userName: "",
         }
     }
 
@@ -17,14 +17,21 @@ export default class MainField extends React.Component {
             userName: name,
         })
     }
+    Logout()
+    {
+        this.setState({
+            isLogin: false,
+            userName: "",
+        })
+    }
 
     render() {
         if (this.state.isLogin) {
 
             return (
                 <div>
-                    <NavBar userName={this.state.userName}></NavBar>
-                    <WorkPlace isLogin={this.state.isLogin}></WorkPlace>
+                    <NavBar userName={this.state.userName} logout={()=>{this.Logout()}}></NavBar>
+                    <WorkPlace isLogin={this.state.isLogin} setLogin={(e)=>this.LoginHandler(e)}></WorkPlace>
                 </div>
             )
 
@@ -32,8 +39,8 @@ export default class MainField extends React.Component {
         else {
             return (
                 <div>
-                    <NavBar userName={this.state.userName}></NavBar>
-                    <WorkPlace isLogin={this.state.isLogin}></WorkPlace>
+                    <NavBar userName={this.state.userName} logout={()=>{this.Logout()}}></NavBar>
+                    <WorkPlace isLogin={this.state.isLogin} setLogin={(e)=>this.LoginHandler(e)}></WorkPlace>
                 </div>
             )
         }
