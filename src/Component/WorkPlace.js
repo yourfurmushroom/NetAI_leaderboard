@@ -1,6 +1,7 @@
 import React from "react"
-import RequestLogin from "./RequestLogin"
+import RequestLogin from "./RequestLoginOrRegister"
 import LeaderBoardArea from "./LeaderBoardArea"
+import SelectFileField from "./SelectFileField"
 
 export default class WorkPlace extends React.Component
 {
@@ -18,7 +19,7 @@ export default class WorkPlace extends React.Component
         {
             return (
                 <div class="workField" style={{display:"flex"}}>
-                    
+                    <SelectFileField></SelectFileField>
                     <LeaderBoardArea></LeaderBoardArea>
     
                 </div>

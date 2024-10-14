@@ -1,3 +1,5 @@
+
+
 let mysql=require("mysql")
 
 function ConnectToDB()
@@ -16,7 +18,7 @@ function EndConnection(db)
 
 function SqlCommand(db,cmd)
 {
-    db.query(cmd,(error,results,fields)=>{
+    return db.query(cmd,(error,results,fields)=>{
         if(error)
         {
             throw error
@@ -25,7 +27,6 @@ function SqlCommand(db,cmd)
     })
 }
    
-
 
 export function Flow(type,userName)
 {
@@ -39,17 +40,19 @@ function LoginFlow(userName)
 {
     try{
         let db=ConnectToDB()
-        let cmd='select * in User where userName='+"'"+userName+"'"
+        let cmd='select * from User where userName='+"'"+userName+"'"
+        db.connect()
         let request=SqlCommand(db,cmd)
         if(request.length<=0)
         {
             console.log("no user found")
         }
+        
         EndConnection(db)
     }
     catch
     {
         alert("db connect failed")
-        EndConnection(db)
     }
 }
+
