@@ -1,4 +1,5 @@
 import React from "react";
+import UploadButton from "./UploadButton";
 
 export default class UploadArea extends React.Component
 {
@@ -9,13 +10,13 @@ export default class UploadArea extends React.Component
 
         }
 
-        render()
-        {
-            return(
-                <div>
-
-                </div>
-            )
-        }
+    }
+    render()
+    {
+        return(
+            <div>
+                <UploadButton></UploadButton>
+            </div>
+        )
     }
 }

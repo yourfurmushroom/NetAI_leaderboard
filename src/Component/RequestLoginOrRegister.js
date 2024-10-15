@@ -98,7 +98,7 @@ export default class RequestLogin extends React.Component {
     else
       return (
         <div style={{
-          width: "100%",
+          width: "70%",
           textAlign: "center",
           transform: "translateX(30%)"
         }}>
