@@ -26,7 +26,19 @@ export default class RequestLogin extends React.Component {
     this.setState({ isLoginPage: false, isRegisterPage: true })
   }
 
+  CheckIsEmpty(text)
+  {
+    let regex=new RegExp("^\s*$")
+    console.log(regex.test(text))
+    return regex.test(text);
+  }
+
   SubmitHandler(username, password) {
+    if(this.CheckIsEmpty(username)||this.CheckIsEmpty(password))
+    {
+      alert("逮到你了")
+      return true
+    }
     this.setState({ isLoginPage: false, isRegisterPage: false })
     console.log(username + " " + password)
     ws.send(JSON.stringify({
@@ -51,7 +63,14 @@ export default class RequestLogin extends React.Component {
       
     }
   }
+
   SubmitHandlerInsert(username, password, secondpassword) {
+    if(this.CheckIsEmpty(username)||this.CheckIsEmpty(password)||this.CheckIsEmpty(secondpassword))
+      {
+        alert("逮到你了")
+        return true
+      }
+
     this.setState({ isLoginPage: false, isRegisterPage: false })
     console.log(`${username} ${password} ${secondpassword}`)
     ws.send(JSON.stringify({
@@ -60,7 +79,6 @@ export default class RequestLogin extends React.Component {
       password: password,
       secondpassword: secondpassword
     }))
-    //-----------------------------------------------------------------------
     ws.onmessage = (e) => {
       let verify=JSON.parse(e.data)
       
@@ -74,7 +92,6 @@ export default class RequestLogin extends React.Component {
       }
       
     }
-    //-----------------------------------------------------------------------
   }
 
   render() {

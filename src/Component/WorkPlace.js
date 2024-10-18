@@ -19,7 +19,7 @@ export default class WorkPlace extends React.Component
         {
             return (
                 <div class="workField" style={{display:"flex"}}>
-                    <SelectFileField setLogin={(e)=>this.props.setLogin(e)}></SelectFileField>
+                    <SelectFileField userName={this.props.userName} setLogin={(e)=>this.props.setLogin(e)}></SelectFileField>
                     <LeaderBoardArea></LeaderBoardArea>
     
                 </div>

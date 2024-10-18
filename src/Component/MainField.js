@@ -31,7 +31,7 @@ export default class MainField extends React.Component {
             return (
                 <div>
                     <NavBar userName={this.state.userName} logout={()=>{this.Logout()}}></NavBar>
-                    <WorkPlace isLogin={this.state.isLogin} setLogin={(e)=>this.LoginHandler(e)}></WorkPlace>
+                    <WorkPlace userName={this.state.userName} isLogin={this.state.isLogin} setLogin={(e)=>this.LoginHandler(e)}></WorkPlace>
                 </div>
             )
 
