@@ -22,13 +22,13 @@ export default function UploadButton({ userName }) {
             for (let i = 0; i < selectedFiles.length; i++) {
                 const file = selectedFiles[i];
                 const reader = new FileReader();
-                const filename=file.name.split('.')
 
                 reader.onload = function (e) {
                     const fileBuffer = e.target.result;
                     ws.send(JSON.stringify({
                         flag:"Upload",
-                        filename:`${userName}.${filename.pop()}`,
+                        filename:file.name,
+                        username:userName,
                         filebuffer:btoa(new Uint8Array(fileBuffer).reduce((data,byte)=>data+String.fromCharCode(byte),''))
                     }));  // 發送文件的二進制數據
                 };
