@@ -54,7 +54,7 @@ export default class RequestLogin extends React.Component {
       if(verify['messageField'] === "True")
       {
         alert(verify['detail'])
-        this.props.setLogin(username)
+        this.props.setLogin(username,verify['groupname'])
       }
       else{
         alert("you fuck")
@@ -100,15 +100,15 @@ export default class RequestLogin extends React.Component {
         <div style={{
           justifyContent: 'space-between',
           width: '70%',
-          textAlign: 'center',
+          textAlign: "right",
           alignContent: 'center'
         }}>
           <div className="buttonPlace">
             <button onClick={() => this.LoginHandler()} type="button" class="btn btn-secondary">登入</button>
           </div>
-          <div className="buttonPlace">
+          {/* <div className="buttonPlace">
             <button onClick={() => this.RegisterHandler()} type="button" class="btn btn-secondary">註冊</button>
-          </div>
+          </div> */}
 
         </div>
       )
@@ -117,11 +117,10 @@ export default class RequestLogin extends React.Component {
         <div style={{
           width: "70%",
           textAlign: "center",
-          transform: "translateX(30%)"
+          
         }}>
           <LoginPage reset={()=>this.ResetWindow()} isLoginPage={this.state.isLoginPage} SubmitHandler={(username, password) => this.SubmitHandler(username, password)}></LoginPage>
           <RegisterPage reset={()=>this.ResetWindow()} isRegisterPage={this.state.isRegisterPage} SubmitHandler={(username, password, secondpassword) => this.SubmitHandlerInsert(username, password, secondpassword)}></RegisterPage>
-
         </div>
       )
   }

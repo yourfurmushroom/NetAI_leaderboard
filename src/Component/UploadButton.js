@@ -44,18 +44,20 @@ export default function UploadButton({ userName }) {
 
 
     return (
-        <div>
+        <div style={{width:'80%',
+            margin:'auto'
+        }}>
             <div className="mb-3">
                 <h1 for="formFileMultiple" className="form-label">選擇壓縮檔</h1>
                 <input className="form-control" type="file" id="formFileMultiple" multiple onChange={(e)=>handleFileChange(e)} />
-                <button onClick={()=>handleUpload()}>上傳</button>
+                <button style={{margin:'30px'}} type="button" class="btn btn-light" onClick={()=>handleUpload()}>上傳</button>
             </div>
             <div>
-            <h2 for="formFileMultiple" className="form-label">已選擇資料</h2>
+            {/* <h2 for="formFileMultiple" className="form-label">已選擇資料</h2>
             <ul style={{listStyle:"none"}}>
                 
                 {reactChildren}
-            </ul>
+            </ul> */}
             </div>
         </div>
     )

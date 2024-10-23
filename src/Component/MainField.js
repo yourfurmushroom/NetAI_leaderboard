@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import NavBar from "./NavBar";
 import WorkPlace from "./WorkPlace";
 
@@ -8,13 +8,17 @@ export default class MainField extends React.Component {
         this.state = {
             isLogin: false,
             userName: "",
+            isCheckSelfBoard:false,
+            isModifyProperty:false,
+            groupname:""
         }
     }
 
-    LoginHandler(name) {
+    LoginHandler(name,groupName) {
         this.setState({
             isLogin: true,
             userName: name,
+            groupName:groupName
         })
     }
     Logout()
@@ -25,13 +29,26 @@ export default class MainField extends React.Component {
         })
     }
 
+    CheckSelfBoard() {
+        this.setState({
+            isCheckSelfBoard: !this.state.isCheckSelfBoard
+        })
+    }
+
+    ChangeUserPropertiesWindow()
+    {
+        this.setState({
+            isModifyProperty: !this.state.isModifyProperty
+        })
+    }
+
     render() {
         if (this.state.isLogin) {
 
             return (
                 <div>
-                    <NavBar userName={this.state.userName} logout={()=>{this.Logout()}}></NavBar>
-                    <WorkPlace userName={this.state.userName} isLogin={this.state.isLogin} setLogin={(e)=>this.LoginHandler(e)}></WorkPlace>
+                    <NavBar groupName={this.state.groupName} modifyProperty={()=>this.ChangeUserPropertiesWindow()} isModifyProperty={this.state.isModifyProperty} CheckSelfBoard={()=>this.CheckSelfBoard()} isCheckSelfBoard={this.state.isCheckSelfBoard} isLogin={this.state.isLogin} setLogin={(e,v)=>this.LoginHandler(e,v)} userName={this.state.userName} logout={()=>{this.Logout()}}></NavBar>
+                    <WorkPlace groupName={this.state.groupName} userName={this.state.userName} modifyProperty={()=>this.ChangeUserPropertiesWindow()} isModifyProperty={this.state.isModifyProperty} CheckSelfBoard={()=>this.CheckSelfBoard()} isCheckSelfBoard={this.state.isCheckSelfBoard} isuserName={this.state.userName} isLogin={this.state.isLogin} setLogin={(e)=>this.LoginHandler(e)}></WorkPlace>
                 </div>
             )
 
@@ -39,8 +56,8 @@ export default class MainField extends React.Component {
         else {
             return (
                 <div>
-                    <NavBar userName={this.state.userName} logout={()=>{this.Logout()}}></NavBar>
-                    <WorkPlace isLogin={this.state.isLogin} setLogin={(e)=>this.LoginHandler(e)}></WorkPlace>
+                    <NavBar groupName={this.state.groupName} CheckSelfBoard={()=>this.CheckSelfBoard()} isLogin={this.state.isLogin} setLogin={(e,v)=>this.LoginHandler(e,v)} userName={this.state.userName} logout={()=>{this.Logout()}}></NavBar>
+                    <WorkPlace groupName={this.state.groupName} userName={this.state.userName} CheckSelfBoard={()=>this.CheckSelfBoard()} isCheckSelfBoard={this.state.isCheckSelfBoard} isLogin={this.state.isLogin} setLogin={(e)=>this.LoginHandler(e)}></WorkPlace>
                 </div>
             )
         }

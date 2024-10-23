@@ -40,11 +40,14 @@ export class LoginPage extends React.Component
                         display:'flex',
                         // backgroundColor:"rgba(0,10,4,0.5)",
                         padding:'30px',
+                        left:'50%',
+                        transform:'translate(-50%,50%)'
             }}>
             <div style={{
                 width:"100%",
                 textAlign:"center",
-                boxShadow:"0 0 50px 20px black",
+                boxShadow:"0 0 50px 20px rgba(189,178,187,0.5)",
+                backgroundColor:"white",
                 borderRadius:"10px",
                 padding:"20px"
                 }}>
@@ -104,11 +107,14 @@ export class RegisterPage extends React.Component
                             display:'flex',
                             // backgroundColor:"rgba(0,10,4,0.5)",
                             padding:'30px',
+                            left:'50%',
+                            transform:'translate(-50%,50%)'
                 }}>
                 <div style={{
                     width:"100%",
                     textAlign:"center",
-                    boxShadow:"0 0 50px 20px black",
+                    boxShadow:"0 0 50px 20px rgba(189,178,187,0.5)",
+                    backgroundColor:"white",
                     borderRadius:"10px",
                     padding:"20px"
                     }}>
