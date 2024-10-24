@@ -10,6 +10,7 @@ export default function SelfRecordBoard({ isCheckSelfBoard,username, CheckSelfBo
             username: username,
         }))
         ws.onmessage = (e) => {
+            console.log(`asdasdasd ${e}`)
             let items = JSON.parse(e.data)
             setsubmitSet(prev => [...prev, ...items['items']])
             console.log(submitSet)

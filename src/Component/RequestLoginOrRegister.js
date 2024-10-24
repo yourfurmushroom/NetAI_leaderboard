@@ -54,7 +54,7 @@ export default class RequestLogin extends React.Component {
       if(verify['messageField'] === "True")
       {
         alert(verify['detail'])
-        this.props.setLogin(username,verify['groupname'])
+        this.props.setLogin(username,verify['groupName'])
       }
       else{
         alert("you fuck")

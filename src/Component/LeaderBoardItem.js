@@ -1,4 +1,4 @@
-export default function LeaderBoardItem(score)
+export default function LeaderBoardItem({description})
 {
     
     return (
@@ -11,7 +11,7 @@ export default function LeaderBoardItem(score)
             border:"2px solid rgba(200,191,231,0.5)",
             borderRadius:"20px"
             }}>
-
+               {description}
         </div>
     )
 }
