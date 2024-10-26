@@ -2,25 +2,24 @@ import React, { useEffect, useState } from "react";
 import { ws } from "./webServer";
 import LeaderBoardItem from "./LeaderBoardItem";
 
-export default function SelfRecordBoard({ isCheckSelfBoard,username, CheckSelfBoard}) {
+
+export default function SelfRecordBoard({ groupName,isCheckSelfBoard,username, CheckSelfBoard}) {
     const [submitSet, setsubmitSet] = useState([])
     useEffect(() => {
         ws.send(JSON.stringify({
             flag: "ShowBoard",
             username: username,
+            groupName:groupName
         }))
         ws.onmessage = (e) => {
-            console.log(`asdasdasd ${e}`)
             let items = JSON.parse(e.data)
             setsubmitSet(prev => [...prev, ...items['items']])
-            console.log(submitSet)
         }
         return () => {
             ws.onmessage = null;
         };
     }, [username])
 
-    console.log(isCheckSelfBoard)
     if(isCheckSelfBoard)
     return (
         
@@ -56,5 +55,18 @@ export default function SelfRecordBoard({ isCheckSelfBoard,username, CheckSelfBo
 
 function ComponantFactor(set)
 {
-    return set.map(x=><LeaderBoardItem>x</LeaderBoardItem>)
+    console.log(set)
+    set.forEach(x => {
+        x.time=new Date(x.time).toLocaleString('zh-Hans-CN', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false, // 24小时制
+        });
+    });
+    set.sort((a, b) => b.time - a.time)
+    return set.map(x=><LeaderBoardItem score={x.publicAUC} groupName={x.groupName} timestamp={x.time} description={""}></LeaderBoardItem>)
 }

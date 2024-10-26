@@ -1,4 +1,4 @@
-export default function LeaderBoardItem({description})
+export default function LeaderBoardItem({score,groupName,timestamp,description})
 {
     
     return (
@@ -9,9 +9,20 @@ export default function LeaderBoardItem({description})
             margin:"20px auto",
             textAlign:"center",
             border:"2px solid rgba(200,191,231,0.5)",
-            borderRadius:"20px"
+            borderRadius:"20px",
+            display:'flex',
+            alignContent: 'center'
             }}>
-               {description}
+                <div className="labelItem">
+                    {groupName}
+                </div>
+                <div className="labelItem">
+                    {timestamp}
+                </div>
+                <div className="labelItem">
+                    {/* {score}{description} */score}
+                </div>
+            
         </div>
     )
 }

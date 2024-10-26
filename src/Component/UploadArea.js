@@ -15,7 +15,7 @@ export default class UploadArea extends React.Component
     {
         return(
             <div>
-                <UploadButton userName={this.props.userName}></UploadButton>
+                <UploadButton groupName={this.props.groupName} userName={this.props.userName}></UploadButton>
             </div>
         )
     }

@@ -29,7 +29,6 @@ export default class RequestLogin extends React.Component {
   CheckIsEmpty(text)
   {
     let regex=new RegExp("^\s*$")
-    console.log(regex.test(text))
     return regex.test(text);
   }
 
@@ -40,7 +39,6 @@ export default class RequestLogin extends React.Component {
       return true
     }
     this.setState({ isLoginPage: false, isRegisterPage: false })
-    console.log(username + " " + password)
     ws.send(JSON.stringify({
       flag: "Login",
       username: username,
@@ -50,14 +48,13 @@ export default class RequestLogin extends React.Component {
 
     ws.onmessage = (e) => {
       let verify=JSON.parse(e.data)
-      console.log(verify)
       if(verify['messageField'] === "True")
       {
         alert(verify['detail'])
         this.props.setLogin(username,verify['groupName'])
       }
       else{
-        alert("you fuck")
+        alert(verify['detail'])
         return
       }
       
@@ -72,7 +69,6 @@ export default class RequestLogin extends React.Component {
       }
 
     this.setState({ isLoginPage: false, isRegisterPage: false })
-    console.log(`${username} ${password} ${secondpassword}`)
     ws.send(JSON.stringify({
       flag: "Register",
       username: username,

@@ -56,7 +56,6 @@ export default function ModifyProperty({ userName, modifyProperty, isModifyPrope
 
 function SendToWs(username,groupName,password,secondpassword)
 {
-    console.log(`${groupName},${password},${secondpassword}`)
     ws.send(JSON.stringify({
         flag:'Modify',
         userName:username,

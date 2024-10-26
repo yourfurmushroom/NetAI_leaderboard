@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {ws} from './webServer'
 
-export default function UploadButton({ userName }) {
+export default function UploadButton({ groupName,userName }) {
     const [selectedFiles, setSelectedFiles] = useState(null);
     const [reactChildren,setChild]=useState([])
 
@@ -29,6 +29,7 @@ export default function UploadButton({ userName }) {
                         flag:"Upload",
                         filename:file.name,
                         username:userName,
+                        groupName:groupName,
                         filebuffer:btoa(new Uint8Array(fileBuffer).reduce((data,byte)=>data+String.fromCharCode(byte),''))
                     }));  // 發送文件的二進制數據
                 };

@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.labelItem
+{
+  width:33%;
+  margin:auto;
+  text-align: center;
+
+  
+
+}
