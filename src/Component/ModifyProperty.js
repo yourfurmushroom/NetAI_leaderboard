@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ws } from "./webServer";
 
-export default function ModifyProperty({ userName, modifyProperty, isModifyProperty }) {
+export default function ModifyProperty({ group,userName, modifyProperty, isModifyProperty }) {
 
     const [Password,setPassword]=useState("")
     const [confirmPassword,setConfirmPassword]=useState("")
@@ -35,7 +35,7 @@ export default function ModifyProperty({ userName, modifyProperty, isModifyPrope
                     <h1 style={{ display: "inline-block" }}>修改隊伍資料</h1>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">隊名</span>
-                        <input value={userName} type="text" class="form-control" placeholder={userName} aria-label="Username" aria-describedby="basic-addon1"/>
+                        <input value={userName} type="text" class="form-control" placeholder={group} aria-label="Username" aria-describedby="basic-addon1"/>
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">新密碼</span>

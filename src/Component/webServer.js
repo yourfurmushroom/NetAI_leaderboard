@@ -7,10 +7,12 @@ export var ws
 //     console.log("aaa")
 //     ws.send(JSON.stringify("request"))
 // }
-// // ws.onmessage=(e)=>
-// // {
-   
-// // }
+
+// ws.onmessage=(e)=>
+// {
+//   alert("檔案結構有誤 請重試")
+//   document.location.reload  
+// }
 // ws.onclose=(e)=>
 // {
 //     console.log("closed")

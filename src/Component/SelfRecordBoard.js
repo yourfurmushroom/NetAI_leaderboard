@@ -56,6 +56,7 @@ export default function SelfRecordBoard({ groupName,isCheckSelfBoard,username, C
 function ComponantFactor(set)
 {
     console.log(set)
+    set.sort((a, b) => a.time - b.time)
     set.forEach(x => {
         x.time=new Date(x.time).toLocaleString('zh-Hans-CN', {
             year: 'numeric',
@@ -67,6 +68,5 @@ function ComponantFactor(set)
             hour12: false, // 24小时制
         });
     });
-    set.sort((a, b) => b.time - a.time)
     return set.map(x=><LeaderBoardItem score={x.publicAUC} groupName={x.groupName} timestamp={x.time} description={""}></LeaderBoardItem>)
 }

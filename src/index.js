@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import {initializeWebSocket} from './Component/webServer'
 
 initializeWebSocket()
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>

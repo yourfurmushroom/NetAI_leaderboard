@@ -18,7 +18,7 @@ export default class WorkPlace extends React.Component {
         if (this.props.isModifyProperty)
             return (
                 <div>
-                    <ModifyProperty userName={this.props.userName} modifyProperty={() => this.props.modifyProperty()} isModifyProperty={this.props.isModifyProperty}></ModifyProperty>
+                    <ModifyProperty group={this.props.groupName} userName={this.props.userName} modifyProperty={() => this.props.modifyProperty()} isModifyProperty={this.props.isModifyProperty}></ModifyProperty>
                 </div>
             )
         else if (this.props.isCheckSelfBoard)
