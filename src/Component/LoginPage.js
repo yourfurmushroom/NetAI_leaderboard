@@ -28,7 +28,6 @@ export class LoginPage extends React.Component
         })
     }
 
-
     render()
     {
         if(this.props.isLoginPage)

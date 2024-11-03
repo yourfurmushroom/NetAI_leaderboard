@@ -9,14 +9,12 @@ export default function ModifyProperty({ group,userName, modifyProperty, isModif
 
     if (isModifyProperty)
         return (
-
             <div style={{
                 position: 'absolute',
                 width: "50%",
                 height: "400px",
                 margin: 'auto',
                 display: 'flex',
-                // backgroundColor:"rgba(0,10,4,0.5)",
                 borderRadius: "20px",
                 boxShadow: '0 20px 20px rgba(0,10,4,0.5)',
                 padding: '30px',
@@ -46,8 +44,6 @@ export default function ModifyProperty({ group,userName, modifyProperty, isModif
                         <input onChange={e=>setConfirmPassword(e.target.value)} type="password" class="form-control" placeholder="確認密碼" aria-label="Username" aria-describedby="basic-addon1"/>
                     </div>
                     <button onClick={()=>SendToWs(userName,groupName,Password,confirmPassword)} type="button" class="btn btn-secondary">修改</button>
-
-
                     <button style={{ padding: "50px" }} type="button" class="btn-close position-absolute top-0 end-0" aria-label="Close" onClick={modifyProperty}></button>
                 </div>
             </div>
@@ -73,8 +69,6 @@ function SendToWs(username,groupName,password,secondpassword)
       }
       else{
         alert(verify['detail'])
-      }
-      
+      } 
     }
-
 }

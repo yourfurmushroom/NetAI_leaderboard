@@ -51,7 +51,6 @@ export default class MainField extends React.Component {
                     <WorkPlace groupName={this.state.groupName} userName={this.state.userName} modifyProperty={()=>this.ChangeUserPropertiesWindow()} isModifyProperty={this.state.isModifyProperty} CheckSelfBoard={()=>this.CheckSelfBoard()} isCheckSelfBoard={this.state.isCheckSelfBoard} isuserName={this.state.userName} isLogin={this.state.isLogin} setLogin={(e)=>this.LoginHandler(e)}></WorkPlace>
                 </div>
             )
-
         }
         else {
             return (
