@@ -12,8 +12,6 @@ export default class WorkPlace extends React.Component {
         }
     }
 
-
-
     render() {
         if (this.props.isModifyProperty)
             return (

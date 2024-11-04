@@ -70,5 +70,5 @@ function ComponantFactor(set)
             hour12: false, // 24小时制
         });
     });
-    return set.map(x=><LeaderBoardItem score={x.publicAUC} groupName={x.groupName} timestamp={x.time} description={""}></LeaderBoardItem>)
+    return set.map((x,index)=><LeaderBoardItem key={index} id={index} score={x.publicAUC} groupName={x.groupName} timestamp={x.time} description={""}></LeaderBoardItem>)
 }
