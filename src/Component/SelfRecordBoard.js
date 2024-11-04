@@ -55,8 +55,8 @@ export default function SelfRecordBoard({ groupName,isCheckSelfBoard,username, C
 
 function ComponantFactor(set)
 {
-    console.log(set)
-    set.sort((a, b) => a.time - b.time)
+    
+    set.sort((a, b) => new Date(b.time) - new Date(a.time))
     set.forEach(x => {
         x.time=new Date(x.time).toLocaleString('zh-Hans-CN', {
             year: 'numeric',
