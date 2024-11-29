@@ -22,7 +22,7 @@ export default class SelectFileField extends React.Component
                     textAlign:'center',
                     margin:'auto'
                     }}>
-                <UploadArea groupName={this.props.groupName} userName={this.props.userName}></UploadArea>
+                <UploadArea competition={this.props.competition} groupName={this.props.groupName} userName={this.props.userName}></UploadArea>
             </div>
         )
     }

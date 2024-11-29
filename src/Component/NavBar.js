@@ -30,6 +30,10 @@ export default class NavBar extends React.Component {
                             <RequestLogin setLogin={(e,v) => this.props.setLogin(e,v)}></RequestLogin>
                         </div>
                     </nav>
+                    <div>
+                        <marquee style={{fontWeight:"500",color:"red"}}><h1>CP1 的 deadline 是在 11月30號 CP1 報告截止日是12月4號</h1></marquee>
+
+                    </div>
                 </div>
             )
         else if (this.props.isCheckSelfBoard || this.props.isModifyProperty)
@@ -47,6 +51,9 @@ export default class NavBar extends React.Component {
                             </div>
                         </div>
                     </nav>
+                    <div>
+                    <marquee style={{fontWeight:"500",color:"red"}}><h1>CP1 的 deadline 是在 11月30號 CP1 報告截止日是12月4號</h1></marquee>
+                    </div>
                 </div>
             )
         else {
@@ -64,6 +71,10 @@ export default class NavBar extends React.Component {
                             </div>
                         </div>
                     </nav>
+                    <div>
+                    <marquee style={{fontWeight:"500",color:"red"}}><h1>CP1 的 deadline 是在 11月30號 CP1 報告截止日是12月4號</h1></marquee>
+
+                    </div>
                 </div>
             )
 

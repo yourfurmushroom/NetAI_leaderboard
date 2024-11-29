@@ -8,8 +8,15 @@ export default class WorkPlace extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-
+            competiton:1
         }
+    }
+
+    UpdateCompetition(cp)
+    {
+        this.setState({
+            competiton:cp
+        })
     }
 
     render() {
@@ -20,12 +27,12 @@ export default class WorkPlace extends React.Component {
                 </div>
             )
         else if (this.props.isCheckSelfBoard)
-            return (<div><SelfRecordBoard groupName={this.props.groupName} CheckSelfBoard={() => this.props.CheckSelfBoard()} isCheckSelfBoard={this.props.isCheckSelfBoard} name={this.props.username} ></SelfRecordBoard></div>)
+            return (<div><SelfRecordBoard UpdateCompetition={(e)=>this.UpdateCompetition(e)} competition={this.state.competiton} groupName={this.props.groupName} CheckSelfBoard={() => this.props.CheckSelfBoard()} isCheckSelfBoard={this.props.isCheckSelfBoard} name={this.props.username} ></SelfRecordBoard></div>)
         else if (this.props.isLogin) {
             return (
                 <div class="workField" style={{ display: "flex" }}>
-                    <SelectFileField groupName={this.props.groupName} userName={this.props.userName} setLogin={(e,v) => this.props.setLogin(e,v)}></SelectFileField>
-                    <LeaderBoardArea></LeaderBoardArea>
+                    <SelectFileField competition={this.state.competiton} groupName={this.props.groupName} userName={this.props.userName} setLogin={(e,v) => this.props.setLogin(e,v)}></SelectFileField>
+                    <LeaderBoardArea UpdateCompetition={(e)=>this.UpdateCompetition(e)} competiton={this.state.competiton}></LeaderBoardArea>
 
                 </div>
             )
@@ -34,7 +41,7 @@ export default class WorkPlace extends React.Component {
             return (
                 <div class="workField" style={{ display: "flex" }}>
                     {/* <RequestLogin setLogin={(e)=>this.props.setLogin(e)}></RequestLogin> */}
-                    <LeaderBoardArea></LeaderBoardArea>
+                    <LeaderBoardArea UpdateCompetition={(e)=>this.UpdateCompetition(e)} competiton={this.state.competiton}></LeaderBoardArea>
 
                 </div>
             )

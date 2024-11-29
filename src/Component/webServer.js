@@ -29,7 +29,10 @@ export const initializeWebSocket = () => {
       console.log("WebSocket connected");
       ws.send(JSON.stringify("request"));
     };
-
+    ws.onmessage = (e) => {
+      let msg=JSON.parse(e.data)
+      alert(msg['detail'])
+  }
     ws.onclose = function (e) {
       console.log("WebSocket closed");
       NavBar.wsDisconnect();

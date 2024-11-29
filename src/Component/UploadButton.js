@@ -1,16 +1,11 @@
 import React, { useState } from "react";
 import {ws} from './webServer'
 
-export default function UploadButton({ groupName,userName }) {
+export default function UploadButton({ competition,groupName,userName }) {
     const [selectedFiles, setSelectedFiles] = useState(null);
     const [reactChildren,setChild]=useState([])
 
-    ws.onmessage=(e)=>
-    {
-        let msg=JSON.parse(e.data)
-        alert(msg['detail'])
-        setChild((prevChildren) => [...prevChildren, <li>{msg['filename']+" "+msg['detail']}</li>])
-    }
+    
 
 
     const handleFileChange = (event) => {
@@ -27,6 +22,7 @@ export default function UploadButton({ groupName,userName }) {
                     const fileBuffer = e.target.result;
                     ws.send(JSON.stringify({
                         flag:"Upload",
+                        competition:competition.toString(),
                         filename:file.name,
                         username:userName,
                         groupName:groupName,
@@ -41,6 +37,12 @@ export default function UploadButton({ groupName,userName }) {
         {
             alert("沒有選擇檔案")
         }
+        ws.onmessage=(e)=>
+            {
+                let msg=JSON.parse(e.data)
+                alert(msg['detail'])
+                // setChild((prevChildren) => [...prevChildren, <li>{msg['filename']+" "+msg['detail']}</li>])
+            }
     };
 
 
@@ -51,7 +53,7 @@ export default function UploadButton({ groupName,userName }) {
             <div className="mb-3">
                 <h1 for="formFileMultiple" className="form-label">選擇壓縮檔</h1>
                 <input className="form-control" type="file" id="formFileMultiple" multiple onChange={(e)=>handleFileChange(e)} />
-                <button style={{margin:'30px'}} type="button" class="btn btn-light" onClick={()=>handleUpload()}>上傳</button>
+                <button style={{margin:'30px'}} type="button" class="btn btn-light" onClick={()=>handleUpload()}>上傳為cp{competition}的資料</button>
             </div>
             <div>
             {/* <h2 for="formFileMultiple" className="form-label">已選擇資料</h2>

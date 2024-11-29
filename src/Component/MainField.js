@@ -10,7 +10,7 @@ export default class MainField extends React.Component {
             userName: "",
             isCheckSelfBoard:false,
             isModifyProperty:false,
-            groupname:""
+            groupname:"",
         }
     }
 
