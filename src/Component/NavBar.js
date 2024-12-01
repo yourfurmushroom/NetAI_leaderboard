@@ -31,7 +31,7 @@ export default class NavBar extends React.Component {
                         </div>
                     </nav>
                     <div>
-                        <marquee style={{fontWeight:"500",color:"red"}}><h1>CP1 的 deadline 是在 11月30號 CP1 報告截止日是12月4號</h1></marquee>
+                    <marquee scrollamount="10" style={{fontWeight:"500",color:"red"}}><h1>CP2已實作完成，可以玩看看，有bug請通知助教</h1></marquee>
 
                     </div>
                 </div>
@@ -52,7 +52,7 @@ export default class NavBar extends React.Component {
                         </div>
                     </nav>
                     <div>
-                    <marquee style={{fontWeight:"500",color:"red"}}><h1>CP1 的 deadline 是在 11月30號 CP1 報告截止日是12月4號</h1></marquee>
+                    <marquee scrollamount="10" style={{fontWeight:"500",color:"red"}}><h1>CP2已實作完成，可以玩看看，有bug請通知助教</h1></marquee>
                     </div>
                 </div>
             )
@@ -72,7 +72,7 @@ export default class NavBar extends React.Component {
                         </div>
                     </nav>
                     <div>
-                    <marquee style={{fontWeight:"500",color:"red"}}><h1>CP1 的 deadline 是在 11月30號 CP1 報告截止日是12月4號</h1></marquee>
+                    <marquee scrollamount="10" style={{fontWeight:"500",color:"red"}}><h1>CP2已實作完成，可以玩看看，有bug請通知助教</h1></marquee>
 
                     </div>
                 </div>
